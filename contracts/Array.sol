@@ -4,28 +4,16 @@ pragma solidity ^0.8.7;
 
 
 contract Array {
-    uint256[] public dynamicArray = [1,2];
 
-    uint256[10] public fixedArray = [1,2,3,4,5,6,7,8,9,10];
+    uint256[] public dynamicArray = [1,2, 3];
+
+
+    bytes32 public slot0 = keccak256((abi.encode(0)));
 
     function addElementToDynamicArray(uint256 _newElement) external {
         dynamicArray.push(_newElement);
     }
 
-    function removeLastElementOfDynamicArray() external {
-    dynamicArray.pop();
-    }
-
-    function addElementToFixedArray(uint256 _index, uint256 _newElement) external {
-        fixedArray[_index] = _newElement;
-    }
-
-    function getFirstFiveElementsOfFixedArray() external view returns(uint256[5] memory)  {
-        uint256[5] memory result;
-
-        for(uint256 index= 0; index < 5; index ++){
-            result[index] = fixedArray[index];
-        }
-        return  result;
-    }
 }
+
+// web3.eth.getStorageAt("0x0498B7c793D7432Cd9dB27fb02fc9cfdBAfA1Fd3", 4)
