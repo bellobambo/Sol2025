@@ -6,9 +6,9 @@ contract AdvancedStorage{
 
     mapping (address => uint8) public ages;
 
-    function register(address userAddress, uint8 age) external returns(bool){
+    function register(uint8 age) external returns(bool){
 
-        ages[userAddress] = age;
+        ages[msg.sender] = age;
         return true;
     }
 
